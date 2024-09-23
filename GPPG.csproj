@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <PlatformTarget>anycpu</PlatformTarget>
     <AssemblyName>gppg</AssemblyName>
     <RootNamespace>QUT.Gppg</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
