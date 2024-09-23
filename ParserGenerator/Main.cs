@@ -260,7 +260,14 @@ namespace QUT.GPGen {
                             NoThrowOnError = true;
                             break;
                         default:
-                            Console.Error.WriteLine( "GPPG - Unrecognized option \"{0}\"", arg );
+                            if (File.Exists(arg))
+                            {
+                                filename = arg;
+                            }
+                            else
+                            {
+                                Console.Error.WriteLine("GPPG - Unrecognized option \"{0}\"", arg);
+                            }
                             break;
                     }
                 }
