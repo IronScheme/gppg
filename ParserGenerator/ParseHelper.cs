@@ -143,32 +143,32 @@ namespace QUT.GPGen.Parser
             }
             // If %importtokens has been declared then there must be no
             // other %token, %left, %right and so on declarations.
-            if (GPCG.ImportedTokens) {
-                // Terminal should only contain the two token
-                // values added by default: error, and EOF.
-                if (grammar.terminals.Count > 2)
-                    handler.ListError( def, 79 );
-                if (GPCG.ShareTokens)
-                    handler.ListError( def, 80 );
-                if (GPCG.CsTokenFile)
-                    handler.ListError( def, 82 );
+            //if (GPCG.ImportedTokens) {
+            //    // Terminal should only contain the two token
+            //    // values added by default: error, and EOF.
+            //    if (grammar.terminals.Count > 2)
+            //        handler.ListError( def, 79 );
+            //    if (GPCG.ShareTokens)
+            //        handler.ListError( def, 80 );
+            //    if (GPCG.CsTokenFile)
+            //        handler.ListError( def, 82 );
 
-                FileStream fStrm = null;
-                try {
-                    fStrm = new FileStream( grammar.DatFileName, FileMode.Open );
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    grammar.terminals = (Dictionary<string, Terminal>)formatter.Deserialize( fStrm );
-                    Terminal.RemoveMaxDummyTerminalFromDictionary( grammar.terminals );
-                }
-                catch (Exception x) {
-                    Console.Error.WriteLine( "GPPG: Error. Failed to deserialize file {0}", grammar.DatFileName );
-                    Console.Error.WriteLine( x.Message );
-                }
-                finally {
-                    if (fStrm != null)
-                        fStrm.Close();
-                }
-            }
+            //    FileStream fStrm = null;
+            //    try {
+            //        fStrm = new FileStream( grammar.DatFileName, FileMode.Open );
+            //        BinaryFormatter formatter = new BinaryFormatter();
+            //        grammar.terminals = (Dictionary<string, Terminal>)formatter.Deserialize( fStrm );
+            //        Terminal.RemoveMaxDummyTerminalFromDictionary( grammar.terminals );
+            //    }
+            //    catch (Exception x) {
+            //        Console.Error.WriteLine( "GPPG: Error. Failed to deserialize file {0}", grammar.DatFileName );
+            //        Console.Error.WriteLine( x.Message );
+            //    }
+            //    finally {
+            //        if (fStrm != null)
+            //            fStrm.Close();
+            //    }
+            //}
         }
 
         // ===============================================================
@@ -335,8 +335,6 @@ namespace QUT.GPGen.Parser
         public GppgInternalException(string message) : base(message) { }
         public GppgInternalException(string message, Exception innerException)
             : base(message, innerException) { }
-        protected GppgInternalException(SerializationInfo info, StreamingContext context)
-            : base(info, context) { }
     }
 
     [Serializable]
@@ -345,8 +343,6 @@ namespace QUT.GPGen.Parser
         public TooManyErrorsException(string message) : base(message) { }
         public TooManyErrorsException(string message, Exception innerException)
             : base(message, innerException) { }
-        protected TooManyErrorsException(SerializationInfo info, StreamingContext context)
-            : base(info, context) { }
     }
 
     // ===================================================================

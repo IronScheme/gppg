@@ -81,27 +81,27 @@ namespace QUT.GPGen
                 }
             }
 
-            if (GPCG.ShareTokens && grammar.DatFileName != null) // serialize Terminals dictionary.
-            {
-                FileStream fStrm = null;
-                try {
-                    // Insert marker to carry Terminal.max into the serialized structure.
-                    Terminal.InsertMaxDummyTerminalInDictionary( grammar.terminals );
+            //if (GPCG.ShareTokens && grammar.DatFileName != null) // serialize Terminals dictionary.
+            //{
+            //    FileStream fStrm = null;
+            //    try {
+            //        // Insert marker to carry Terminal.max into the serialized structure.
+            //        Terminal.InsertMaxDummyTerminalInDictionary( grammar.terminals );
                    
-                    fStrm = new FileStream( grammar.DatFileName, FileMode.Create );
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    formatter.Serialize( fStrm, grammar.terminals );
-                }
-                catch (IOException x) {
-                    Console.Error.WriteLine( "GPPG: Error. Failed to create token serialization file" );
-                    Console.Error.WriteLine( x.Message );
-                }
-                finally {
-                    if (fStrm != null)
-                        fStrm.Close();
-                    Terminal.RemoveMaxDummyTerminalFromDictionary( grammar.terminals );
-                }
-            }
+            //        fStrm = new FileStream( grammar.DatFileName, FileMode.Create );
+            //        BinaryFormatter formatter = new BinaryFormatter();
+            //        formatter.Serialize( fStrm, grammar.terminals );
+            //    }
+            //    catch (IOException x) {
+            //        Console.Error.WriteLine( "GPPG: Error. Failed to create token serialization file" );
+            //        Console.Error.WriteLine( x.Message );
+            //    }
+            //    finally {
+            //        if (fStrm != null)
+            //            fStrm.Close();
+            //        Terminal.RemoveMaxDummyTerminalFromDictionary( grammar.terminals );
+            //    }
+            //}
 
             if (grammar.DiagFileName != null) // generate conflict list file
             {
