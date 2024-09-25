@@ -225,6 +225,7 @@ namespace QUT.GPGen
         {
             Console.WriteLine("using System;");
             Console.WriteLine("using System.Collections.Generic;");
+            Console.WriteLine("using System.Globalization;");
             Console.WriteLine("using System.Text;");
             Console.WriteLine("using gppg;");
             foreach (string s in grammar.usingList)
@@ -301,8 +302,8 @@ namespace QUT.GPGen
 		}
 
         private static void GeneratedCodeAttribute() {
-            Console.WriteLine( 
-                "[GeneratedCodeAttribute( \"Gardens Point Parser Generator\", \"{0}\")]", GPCG.versionInfo );
+            //Console.WriteLine( 
+            //    "[GeneratedCodeAttribute( \"Gardens Point Parser Generator\", \"{0}\")]", GPCG.versionInfo );
         }
 
         private void GenerateScannerBaseClass() {
